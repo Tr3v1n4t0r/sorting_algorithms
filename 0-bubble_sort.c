@@ -8,30 +8,24 @@
  */
 void bubble_sort(int *array, size_t size)
 {
-	size_t a = size - 1;
-	int *temp = array;
-	int *temp2 = temp++;
-	int b;
+	unsigned int i;
+	int swap, temp;
 
-	printf("temp: %d, temp2: %d\n", *temp, *temp2);
+	if (!array)
+		return;
 
-	while (a)
-	{
-		temp = array;
-		temp2 = temp++;
-		while (*temp && *temp2)
+	do{
+		swap = 0;
+		for (i = 0; i < size - 1; i++)
 		{
-			if (*temp < *temp2)
+			if (array[i] > array[i + 1])
 			{
-				printf("temp: %d, temp2: %d\n", *temp, *temp2);
-				b = *temp;
-				*temp = *temp2;
-				*temp2 = b;
+				temp = array[i + 1];
+				array[i + 1] = array[i];
+				array[i] = temp;
+				swap = 1;
 				print_array(array, size);
 			}
-			temp++;
-			temp2++;
 		}
-		a--;
-	}
+	}while (swap);
 }
