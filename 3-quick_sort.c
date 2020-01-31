@@ -30,7 +30,7 @@ void lomuto_part(int *array, int low, int high, size_t size)
 	{
 		pivot = sort(array, size, low, high);
 		lomuto_part(array, low, pivot - 1, size);
-		lomuto_part(array, low, pivot + 1, size);
+		lomuto_part(array, pivot + 1, high, size);
 	}
 }
 /**
@@ -63,12 +63,12 @@ int sort(int *array, size_t size, int low, int high)
 		if (array[i] < pivot)
 		{
 			if (i != index && array[i] != array[index])
-				swap(&array, &array[i], &array[index], size);
+				swap(array, &array[i], &array[index], size);
 			index++;
 		}
 	}
 	if (high != index && array[high] != array[index])
-		swap(&array, &array[high], &array[index], size);
+		swap(array, &array[high], &array[index], size);
 
 	return (index);
 }
