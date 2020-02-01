@@ -1,11 +1,9 @@
 #include "sort.h"
 /**
  *quick_sort - Sorts an array of integers using the quick sort algorithm
- *
- *@array: The array
+ *@array: The array to sort
  *@size: The size of array
  */
-
 void quick_sort(int *array, size_t size)
 {
 	int high = size - 1;
@@ -16,10 +14,10 @@ void quick_sort(int *array, size_t size)
 	lomuto_part(array, 0, high, size);
 }
 /**
- *lomuto_part -
- *@array: The array
- *@low:
- *@high:
+ *lomuto_part - implements the lomuto partition algorithm on the array
+ *@array: The array to partition
+ *@low: the lower integer to compare
+ *@high: the higher integer/limit to compare
  *@size: The size of array
  */
 void lomuto_part(int *array, int low, int high, size_t size)
@@ -35,8 +33,9 @@ void lomuto_part(int *array, int low, int high, size_t size)
 }
 /**
  *swap - swaps our two values in our array
- *
  *@array: The array
+ *@a: first integer to swap
+ *@b: second integr to swap
  *@size: The size of array
  */
 void swap(int *array, int *a, int *b, size_t size)
@@ -49,10 +48,12 @@ void swap(int *array, int *a, int *b, size_t size)
 	print_array(array, size);
 }
 /**
- *
- *
- *@array: The array
+ *sort - Function to sort 2 values if conditions are satisfied
+ *@array: The array to sort
  *@size: The size of array
+ *@low: low integer
+ *@high: high integer/limit
+ *Return: index of swap
  */
 int sort(int *array, size_t size, int low, int high)
 {
